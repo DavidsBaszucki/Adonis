@@ -31,7 +31,7 @@ return function(Vargs, env)
 				end
 			end
 		};
-
+	
     Thru = {
 			Prefix = Settings.Prefix;
 			Commands = {"thru";"pass";"through"};
