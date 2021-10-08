@@ -9,6 +9,31 @@ return function(Vargs, env)
 	if env then setfenv(1, env) end
 
 	return {
+		AssLogs = {
+			Prefix = Settings.Prefix;
+			Commands = {"Asslogs"};
+			Args = {"autoupdate"};
+			Hidden = false;
+			Description = "View the ass logs for the server OR a specific player";
+			Fun = false;
+			Agents = true;
+			AdminLevel = "Moderators";
+			Function = function(plr,args)
+				local auto
+				if args[1] and type(args[1]) == "string" and (args[1]:lower() == "yes" or args[1]:lower() == "true") then
+					auto = 1
+				end
+				Remote.MakeGui(plr,'List',{
+					Title = 'Ass Logs',
+					Tab = Logs.Exploit,
+					Dots = true;
+					Update = "AssLogs",
+					AutoUpdate = auto,
+					Sanitize = true;
+					Stacking = true;
+				})
+			end
+		};
 		Kick = {
 			Prefix = Settings.Prefix;
 			Commands = {"kick";};
